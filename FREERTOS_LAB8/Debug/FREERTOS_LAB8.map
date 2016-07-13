@@ -1,0 +1,532 @@
+******************************************************************************
+                  TI ARM Linker PC v5.2.5                      
+******************************************************************************
+>> Linked Tue Jul 12 21:58:58 2016
+
+OUTPUT FILE NAME:   <FREERTOS_LAB8.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 000043fd
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00040000  00004612  0003b9ee  R  X
+  SRAM                  20000000   00008000  000051f4  00002e0c  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    00004618   00004618    r-x
+  00000000    00000000    0000026c   0000026c    r-- .intvecs
+  0000026c    0000026c    0000434c   0000434c    r-x .text
+  000045b8    000045b8    0000000a   0000000a    r-- .const
+  000045c8    000045c8    00000050   00000050    r-- .cinit
+20000000    20000000    000051f4   00000000    rw-
+  20000000    20000000    00004f8c   00000000    rw- .bss
+  20004f8c    20004f8c    00000200   00000000    rw- .stack
+  2000518c    2000518c    00000068   00000000    rw- .data
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    0000026c     
+                  00000000    0000026c     tm4c1231h6pm_startup_ccs.obj (.intvecs)
+
+.text      0    0000026c    0000434c     
+                  0000026c    00001a1c     tasks.obj (.text)
+                  00001c88    00000af4     queue.obj (.text)
+                  0000277c    00000600     timers.obj (.text)
+                  00002d7c    000004f0     DIO.obj (.text)
+                  0000326c    00000460     event_groups.obj (.text)
+                  000036cc    00000214     UART.obj (.text)
+                  000038e0    000001cc     heap_2.obj (.text)
+                  00003aac    000001b8     port.obj (.text)
+                  00003c64    000001b6     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_add_t2.obj (.text)
+                  00003e1a    00000002     --HOLE-- [fill = 0]
+                  00003e1c    0000016c     main.obj (.text)
+                  00003f88    00000132     list.obj (.text)
+                  000040ba    00000002     --HOLE-- [fill = 0]
+                  000040bc    000000d2     portasm.obj (.text)
+                  0000418e    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.obj (.text)
+                  0000422a    00000002     --HOLE-- [fill = 0]
+                  0000422c    0000007c     PLL.obj (.text)
+                  000042a8    0000007a     rtsv7M4_T_le_v4SPD16_eabi.lib : memset_t2.obj (.text)
+                  00004322    00000002     --HOLE-- [fill = 0]
+                  00004324    0000006c                                   : autoinit.obj (.text)
+                  00004390    0000006a                                   : copy_decompress_rle.obj (.text)
+                  000043fa    00000002     --HOLE-- [fill = 0]
+                  000043fc    00000050                                   : boot.obj (.text)
+                  0000444c    0000004c                                   : cpy_tbl.obj (.text)
+                  00004498    00000048                                   : fd_toi_t2.obj (.text)
+                  000044e0    00000044                                   : exit.obj (.text)
+                  00004524    00000038                                   : fs_tod_t2.obj (.text)
+                  0000455c    00000018                                   : args_main.obj (.text)
+                  00004574    00000014                                   : _lock.obj (.text)
+                  00004588    0000000e                                   : copy_decompress_none.obj (.text:decompress:none)
+                  00004596    0000000c                                   : copy_zero_init.obj (.text:decompress:ZI)
+                  000045a2    0000000c     tm4c1231h6pm_startup_ccs.obj (.text)
+                  000045ae    00000006     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_rle.obj (.text:decompress:rle24)
+                  000045b4    00000004                                   : pre_init.obj (.text)
+
+.const     0    000045b8    0000000a     
+                  000045b8    00000008     port.obj (.const)
+                  000045c0    00000002     heap_2.obj (.const)
+
+.cinit     0    000045c8    00000050     
+                  000045c8    0000002b     (.cinit..data.load) [load image, compression = rle]
+                  000045f3    00000001     --HOLE-- [fill = 0]
+                  000045f4    0000000c     (__TI_handler_table)
+                  00004600    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  00004608    00000010     (__TI_cinit_table)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.bss       0    20000000    00004f8c     UNINITIALIZED
+                  20000000    00004e20     heap_2.obj (.bss:ucHeap)
+                  20004e20    00000064     tasks.obj (.bss:pxReadyTasksLists)
+                  20004e84    00000050     queue.obj (.bss:xQueueRegistry)
+                  20004ed4    00000014     (.common:xActiveTimerList1)
+                  20004ee8    00000014     (.common:xActiveTimerList2)
+                  20004efc    00000014     (.common:xDelayedTaskList1)
+                  20004f10    00000014     (.common:xDelayedTaskList2)
+                  20004f24    00000014     (.common:xPendingReadyList)
+                  20004f38    00000014     (.common:xSuspendedTaskList)
+                  20004f4c    00000014     (.common:xTasksWaitingTermination)
+                  20004f60    00000008     (.common:xEnd)
+                  20004f68    00000008     (.common:xStart)
+                  20004f70    00000004     (.common:Group1)
+                  20004f74    00000004     (.common:data1)
+                  20004f78    00000004     (.common:data2)
+                  20004f7c    00000004     (.common:pxCurrentTimerList)
+                  20004f80    00000004     (.common:pxDelayedTaskList)
+                  20004f84    00000004     (.common:pxOverflowDelayedTaskList)
+                  20004f88    00000004     (.common:pxOverflowTimerList)
+
+.TI.noinit 
+*          0    20000000    00000000     UNINITIALIZED
+
+.stack     0    20004f8c    00000200     UNINITIALIZED
+                  20004f8c    00000200     --HOLE--
+
+.data      0    2000518c    00000068     UNINITIALIZED
+                  2000518c    00000034     tasks.obj (.data)
+                  200051c0    0000000c     port.obj (.data)
+                  200051cc    0000000a     timers.obj (.data)
+                  200051d6    00000002     --HOLE--
+                  200051d8    00000008     heap_2.obj (.data)
+                  200051e0    00000008     rtsv7M4_T_le_v4SPD16_eabi.lib : _lock.obj (.data)
+                  200051e8    00000008                                   : exit.obj (.data)
+                  200051f0    00000004                                   : stkdepth_vars.obj (.data)
+
+.TI.persistent 
+*          0    2000518c    00000000     UNINITIALIZED
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 00004608 records: 2, size/record: 8, table size: 16
+	.data: load addr=000045c8, load size=0000002b bytes, run addr=2000518c, run size=00000068 bytes, compression=rle
+	.bss: load addr=00004600, load size=00000008 bytes, run addr=20000000, run size=00004f8c bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 000045f4 records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_decompress_rle24
+	index: 1, handler: __TI_decompress_none
+	index: 2, handler: __TI_zero_init
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                             
+-------   ----                             
+00003e55  Button1                          
+00003e91  Button2                          
+000044e1  C$$EXIT                          
+00003161  DIO_PortDirection                
+00002d7d  DIO_PortInit                     
+00002f97  DIO_PortRead                     
+00003035  DIO_PortWrite                    
+20004f70  Group1                           
+0000422d  PLL_Set80                        
+000045a3  ResetISR                         
+UNDEFED   SHT$$INIT_ARRAY$$Base            
+UNDEFED   SHT$$INIT_ARRAY$$Limit           
+00003e1d  Task1                            
+000036cd  UART0_Init                       
+00003851  UART0_ReadChr                    
+00003865  UART0_ReadString                 
+00003835  UART0_SendChr                    
+000037bb  UART0_SendInt                    
+00003797  UART0_SendString                 
+2000518c  __STACK_END                      
+00000200  __STACK_SIZE                     
+2000518c  __STACK_TOP                      
+00004608  __TI_CINIT_Base                  
+00004618  __TI_CINIT_Limit                 
+000045f4  __TI_Handler_Table_Base          
+00004600  __TI_Handler_Table_Limit         
+00004325  __TI_auto_init                   
+200051e8  __TI_cleanup_ptr                 
+00004589  __TI_decompress_none             
+000045af  __TI_decompress_rle24            
+200051ec  __TI_dtors_ptr                   
+00000000  __TI_static_base__               
+00004597  __TI_zero_init                   
+00004499  __aeabi_d2iz                     
+00003c6f  __aeabi_dadd                     
+00003c65  __aeabi_dsub                     
+00004525  __aeabi_f2d                      
+000042a9  __aeabi_memclr                   
+000042a9  __aeabi_memclr4                  
+000042a9  __aeabi_memclr8                  
+0000418f  __aeabi_memcpy                   
+0000418f  __aeabi_memcpy4                  
+0000418f  __aeabi_memcpy8                  
+000042ab  __aeabi_memset                   
+000042ab  __aeabi_memset4                  
+000042ab  __aeabi_memset8                  
+ffffffff  __binit__                        
+ffffffff  __c_args__                       
+20004f8c  __stack                          
+0000455d  _args_main                       
+000043fd  _c_int00                         
+200051e0  _lock                            
+00004583  _nop                             
+0000457b  _register_lock                   
+00004575  _register_unlock                 
+000045b5  _system_pre_init                 
+200051e4  _unlock                          
+000044e5  abort                            
+ffffffff  binit                            
+0000444d  copy_in                          
+20004f74  data1                            
+20004f78  data2                            
+000005f1  eTaskGetState                    
+000044ed  exit                             
+00000000  g_pfnVectors                     
+00003ecd  main                             
+200051f0  main_func_sp                     
+0000418f  memcpy                           
+000042b1  memset                           
+00002691  pcQueueGetName                   
+00000bd3  pcTaskGetName                    
+000028cb  pcTimerGetName                   
+000038e1  pvPortMalloc                     
+00001769  pvTaskIncrementMutexHeldCount    
+00002d2d  pvTimerGetTimerID                
+2000518c  pxCurrentTCB                     
+00003aad  pxPortInitialiseStack            
+00002413  ucQueueGetQueueType              
+000045b8  ulMaxSyscallInterruptPriority    
+000040cd  ulPortGetIPSR                    
+00001781  ulTaskNotifyTake                 
+000036ad  uxEventGroupGetNumber            
+00004073  uxListRemove                     
+000023f3  uxQueueGetQueueNumber            
+00002395  uxQueueMessagesWaiting           
+000023cb  uxQueueMessagesWaitingFromISR    
+000023ab  uxQueueSpacesAvailable           
+00000bcd  uxTaskGetNumberOfTasks           
+00001551  uxTaskGetStackHighWaterMark      
+00000d5d  uxTaskGetSystemState             
+000012b9  uxTaskGetTaskNumber              
+00000681  uxTaskPriorityGet                
+000006b1  uxTaskPriorityGetFromISR         
+00001743  uxTaskResetEventItemValue        
+00003657  vEventGroupClearBitsCallback     
+00003611  vEventGroupDelete                
+00003645  vEventGroupSetBitsCallback       
+00003f89  vListInitialise                  
+00003fb9  vListInitialiseItem              
+00004005  vListInsert                      
+00003fc9  vListInsertEnd                   
+00004181  vPortEnableVFP                   
+00003bab  vPortEndScheduler                
+00003bad  vPortEnterCritical               
+00003bcd  vPortExitCritical                
+000039e7  vPortFree                        
+00003a4f  vPortInitialiseBlocks            
+00004145  vPortSVCHandler                  
+00003c09  vPortSetupTimerInterrupt         
+00004165  vPortStartFirstTask              
+00003c17  vPortValidateInterruptPriority   
+0000264f  vQueueAddToRegistry              
+000023dd  vQueueDelete                     
+00002401  vQueueSetQueueNumber             
+000026d1  vQueueUnregisterQueue            
+00002715  vQueueWaitForMessageRestricted   
+000005b3  vTaskDelay                       
+00000505  vTaskDelayUntil                  
+00000475  vTaskDelete                      
+00000a6d  vTaskEndScheduler                
+000013cd  vTaskGetInfo                     
+000012b1  vTaskMissedYield                 
+00001acd  vTaskNotifyGiveFromISR           
+0000105b  vTaskPlaceOnEventList            
+000010ad  vTaskPlaceOnEventListRestricted  
+0000107b  vTaskPlaceOnUnorderedEventList   
+00001625  vTaskPriorityInherit             
+00000705  vTaskPrioritySet                 
+000008f1  vTaskResume                      
+000012d9  vTaskSetTaskNumber               
+000011f3  vTaskSetTimeOutState             
+00000a11  vTaskStartScheduler              
+0000080d  vTaskSuspend                     
+00000a89  vTaskSuspendAll                  
+00000fd5  vTaskSwitchContext               
+00002d47  vTimerSetTimerID                 
+000034b9  xEventGroupClearBits             
+0000326d  xEventGroupCreate                
+000034ed  xEventGroupGetBitsFromISR        
+00003521  xEventGroupSetBits               
+0000328d  xEventGroupSync                  
+00003399  xEventGroupWaitBits              
+00003a49  xPortGetFreeHeapSize             
+000040e5  xPortPendSVHandler               
+00003b17  xPortStartScheduler              
+00003be3  xPortSysTickHandler              
+00001e95  xQueueCreateCountingSemaphore    
+00001de1  xQueueCreateMutex                
+00001d27  xQueueGenericCreate              
+0000211b  xQueueGenericReceive             
+00001c89  xQueueGenericReset               
+00001eb5  xQueueGenericSend                
+00001fe7  xQueueGenericSendFromISR         
+00002085  xQueueGiveFromISR                
+00001e0d  xQueueGiveMutexRecursive         
+000025eb  xQueueIsQueueEmptyFromISR        
+0000262d  xQueueIsQueueFullFromISR         
+0000233f  xQueuePeekFromISR                
+000022a3  xQueueReceiveFromISR             
+20004e84  xQueueRegistry                   
+00001e49  xQueueTakeMutexRecursive         
+00000e39  xTaskAbortDelay                  
+00001211  xTaskCheckForTimeOut             
+0000026d  xTaskCreate                      
+000018c5  xTaskGenericNotify               
+000019b5  xTaskGenericNotifyFromISR        
+000015c7  xTaskGetCurrentTaskHandle        
+00000cd1  xTaskGetHandle                   
+00000e2f  xTaskGetIdleTaskHandle           
+000015f5  xTaskGetSchedulerState           
+00000b87  xTaskGetTickCount                
+00000b9f  xTaskGetTickCountFromISR         
+00000ec1  xTaskIncrementTick               
+00001b83  xTaskNotifyStateClear            
+00001809  xTaskNotifyWait                  
+000016c3  xTaskPriorityDisinherit          
+000010e1  xTaskRemoveFromEventList         
+00001179  xTaskRemoveFromUnorderedEventList
+00000a9d  xTaskResumeAll                   
+00000977  xTaskResumeFromISR               
+000027a7  xTimerCreate                     
+0000277d  xTimerCreateTimerTask            
+00002823  xTimerGenericCommand             
+000028b1  xTimerGetExpiryTime              
+0000289f  xTimerGetPeriod                  
+00002899  xTimerGetTimerDaemonTaskHandle   
+00002d01  xTimerIsTimerActive              
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                             
+-------   ----                             
+00000000  __TI_static_base__               
+00000000  g_pfnVectors                     
+00000200  __STACK_SIZE                     
+0000026d  xTaskCreate                      
+00000475  vTaskDelete                      
+00000505  vTaskDelayUntil                  
+000005b3  vTaskDelay                       
+000005f1  eTaskGetState                    
+00000681  uxTaskPriorityGet                
+000006b1  uxTaskPriorityGetFromISR         
+00000705  vTaskPrioritySet                 
+0000080d  vTaskSuspend                     
+000008f1  vTaskResume                      
+00000977  xTaskResumeFromISR               
+00000a11  vTaskStartScheduler              
+00000a6d  vTaskEndScheduler                
+00000a89  vTaskSuspendAll                  
+00000a9d  xTaskResumeAll                   
+00000b87  xTaskGetTickCount                
+00000b9f  xTaskGetTickCountFromISR         
+00000bcd  uxTaskGetNumberOfTasks           
+00000bd3  pcTaskGetName                    
+00000cd1  xTaskGetHandle                   
+00000d5d  uxTaskGetSystemState             
+00000e2f  xTaskGetIdleTaskHandle           
+00000e39  xTaskAbortDelay                  
+00000ec1  xTaskIncrementTick               
+00000fd5  vTaskSwitchContext               
+0000105b  vTaskPlaceOnEventList            
+0000107b  vTaskPlaceOnUnorderedEventList   
+000010ad  vTaskPlaceOnEventListRestricted  
+000010e1  xTaskRemoveFromEventList         
+00001179  xTaskRemoveFromUnorderedEventList
+000011f3  vTaskSetTimeOutState             
+00001211  xTaskCheckForTimeOut             
+000012b1  vTaskMissedYield                 
+000012b9  uxTaskGetTaskNumber              
+000012d9  vTaskSetTaskNumber               
+000013cd  vTaskGetInfo                     
+00001551  uxTaskGetStackHighWaterMark      
+000015c7  xTaskGetCurrentTaskHandle        
+000015f5  xTaskGetSchedulerState           
+00001625  vTaskPriorityInherit             
+000016c3  xTaskPriorityDisinherit          
+00001743  uxTaskResetEventItemValue        
+00001769  pvTaskIncrementMutexHeldCount    
+00001781  ulTaskNotifyTake                 
+00001809  xTaskNotifyWait                  
+000018c5  xTaskGenericNotify               
+000019b5  xTaskGenericNotifyFromISR        
+00001acd  vTaskNotifyGiveFromISR           
+00001b83  xTaskNotifyStateClear            
+00001c89  xQueueGenericReset               
+00001d27  xQueueGenericCreate              
+00001de1  xQueueCreateMutex                
+00001e0d  xQueueGiveMutexRecursive         
+00001e49  xQueueTakeMutexRecursive         
+00001e95  xQueueCreateCountingSemaphore    
+00001eb5  xQueueGenericSend                
+00001fe7  xQueueGenericSendFromISR         
+00002085  xQueueGiveFromISR                
+0000211b  xQueueGenericReceive             
+000022a3  xQueueReceiveFromISR             
+0000233f  xQueuePeekFromISR                
+00002395  uxQueueMessagesWaiting           
+000023ab  uxQueueSpacesAvailable           
+000023cb  uxQueueMessagesWaitingFromISR    
+000023dd  vQueueDelete                     
+000023f3  uxQueueGetQueueNumber            
+00002401  vQueueSetQueueNumber             
+00002413  ucQueueGetQueueType              
+000025eb  xQueueIsQueueEmptyFromISR        
+0000262d  xQueueIsQueueFullFromISR         
+0000264f  vQueueAddToRegistry              
+00002691  pcQueueGetName                   
+000026d1  vQueueUnregisterQueue            
+00002715  vQueueWaitForMessageRestricted   
+0000277d  xTimerCreateTimerTask            
+000027a7  xTimerCreate                     
+00002823  xTimerGenericCommand             
+00002899  xTimerGetTimerDaemonTaskHandle   
+0000289f  xTimerGetPeriod                  
+000028b1  xTimerGetExpiryTime              
+000028cb  pcTimerGetName                   
+00002d01  xTimerIsTimerActive              
+00002d2d  pvTimerGetTimerID                
+00002d47  vTimerSetTimerID                 
+00002d7d  DIO_PortInit                     
+00002f97  DIO_PortRead                     
+00003035  DIO_PortWrite                    
+00003161  DIO_PortDirection                
+0000326d  xEventGroupCreate                
+0000328d  xEventGroupSync                  
+00003399  xEventGroupWaitBits              
+000034b9  xEventGroupClearBits             
+000034ed  xEventGroupGetBitsFromISR        
+00003521  xEventGroupSetBits               
+00003611  vEventGroupDelete                
+00003645  vEventGroupSetBitsCallback       
+00003657  vEventGroupClearBitsCallback     
+000036ad  uxEventGroupGetNumber            
+000036cd  UART0_Init                       
+00003797  UART0_SendString                 
+000037bb  UART0_SendInt                    
+00003835  UART0_SendChr                    
+00003851  UART0_ReadChr                    
+00003865  UART0_ReadString                 
+000038e1  pvPortMalloc                     
+000039e7  vPortFree                        
+00003a49  xPortGetFreeHeapSize             
+00003a4f  vPortInitialiseBlocks            
+00003aad  pxPortInitialiseStack            
+00003b17  xPortStartScheduler              
+00003bab  vPortEndScheduler                
+00003bad  vPortEnterCritical               
+00003bcd  vPortExitCritical                
+00003be3  xPortSysTickHandler              
+00003c09  vPortSetupTimerInterrupt         
+00003c17  vPortValidateInterruptPriority   
+00003c65  __aeabi_dsub                     
+00003c6f  __aeabi_dadd                     
+00003e1d  Task1                            
+00003e55  Button1                          
+00003e91  Button2                          
+00003ecd  main                             
+00003f89  vListInitialise                  
+00003fb9  vListInitialiseItem              
+00003fc9  vListInsertEnd                   
+00004005  vListInsert                      
+00004073  uxListRemove                     
+000040cd  ulPortGetIPSR                    
+000040e5  xPortPendSVHandler               
+00004145  vPortSVCHandler                  
+00004165  vPortStartFirstTask              
+00004181  vPortEnableVFP                   
+0000418f  __aeabi_memcpy                   
+0000418f  __aeabi_memcpy4                  
+0000418f  __aeabi_memcpy8                  
+0000418f  memcpy                           
+0000422d  PLL_Set80                        
+000042a9  __aeabi_memclr                   
+000042a9  __aeabi_memclr4                  
+000042a9  __aeabi_memclr8                  
+000042ab  __aeabi_memset                   
+000042ab  __aeabi_memset4                  
+000042ab  __aeabi_memset8                  
+000042b1  memset                           
+00004325  __TI_auto_init                   
+000043fd  _c_int00                         
+0000444d  copy_in                          
+00004499  __aeabi_d2iz                     
+000044e1  C$$EXIT                          
+000044e5  abort                            
+000044ed  exit                             
+00004525  __aeabi_f2d                      
+0000455d  _args_main                       
+00004575  _register_unlock                 
+0000457b  _register_lock                   
+00004583  _nop                             
+00004589  __TI_decompress_none             
+00004597  __TI_zero_init                   
+000045a3  ResetISR                         
+000045af  __TI_decompress_rle24            
+000045b5  _system_pre_init                 
+000045b8  ulMaxSyscallInterruptPriority    
+000045f4  __TI_Handler_Table_Base          
+00004600  __TI_Handler_Table_Limit         
+00004608  __TI_CINIT_Base                  
+00004618  __TI_CINIT_Limit                 
+20004e84  xQueueRegistry                   
+20004f70  Group1                           
+20004f74  data1                            
+20004f78  data2                            
+20004f8c  __stack                          
+2000518c  __STACK_END                      
+2000518c  __STACK_TOP                      
+2000518c  pxCurrentTCB                     
+200051e0  _lock                            
+200051e4  _unlock                          
+200051e8  __TI_cleanup_ptr                 
+200051ec  __TI_dtors_ptr                   
+200051f0  main_func_sp                     
+ffffffff  __binit__                        
+ffffffff  __c_args__                       
+ffffffff  binit                            
+UNDEFED   SHT$$INIT_ARRAY$$Base            
+UNDEFED   SHT$$INIT_ARRAY$$Limit           
+
+[187 symbols]

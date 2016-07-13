@@ -1,0 +1,1 @@
+"./DIO.obj" "./PLL.obj" "./UART.obj" "./event_groups.obj" "./heap_2.obj" "./list.obj" "./main.obj" "./port.obj" "./portasm.obj" "./queue.obj" "./tasks.obj" "./timers.obj" "./tm4c1231h6pm_startup_ccs.obj" "../tm4c1231h6pm.cmd" -l"libc.a" 
